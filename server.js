@@ -26,11 +26,11 @@ app.get('/scg', (req, res) => {
 });
 
 app.get('/focus24', (req, res) => {
-    res.render('focus24', { title: 'FOCUS 24 | Candidates' });
+    res.render('focus24', { title: 'FOCUS2024 | Candidates' });
 });
 
 app.get('/focus25', (req, res) => {
-    res.render('focus25', { title: 'FOCUS 25 | Candidates' });
+    res.render('focus25', { title: 'FOCUS2025 | Candidates' });
 });
 
 app.get('/contact', (req, res) => {
