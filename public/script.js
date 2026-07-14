@@ -67,11 +67,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Fade IN when the box enters the screen
                 entry.target.style.opacity = '1';
                 entry.target.style.transform = 'translateY(0)';
-            } else {
-                // Fade OUT when scrolling past (optional: delete these 2 lines if you only want it to animate once!)
-                entry.target.style.opacity = '0';
-                entry.target.style.transform = 'translateY(40px)';
-            }
+                observer.unobserve(entry.target);
+            } 
         });
     }, {
         threshold: 0.15// Triggers when 15% of the element is visible
