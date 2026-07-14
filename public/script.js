@@ -12,12 +12,11 @@ document.addEventListener('DOMContentLoaded', () => {
         el.style.transform = 'translateY(30px)';
         // Stagger the animation so the title loads slightly before the logo
         el.style.transition = `opacity 0.8s ease-out ${index * 0.2}s, transform 0.8s ease-out ${index * 0.2}s`;
-        
-        // Trigger the animation 100 milliseconds after the page loads
+
         setTimeout(() => {
             el.style.opacity = '1';
             el.style.transform = 'translateY(0)';
-        }, 1500);
+        }, 300);
     });
 
 
@@ -51,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // FEATURE 3: SCROLL REVEAL ANIMATIONS
     // ==========================================
     // Grabs all platforms, text boxes, and contact cards
-    const animatedElements = document.querySelectorAll('.platform-card-wide, .text-box, .contact-card');
+    const animatedElements = document.querySelectorAll('.platform-card-wide, .text-box, .contact-card, .candidate-card');
     
     // Set the initial hidden state
     animatedElements.forEach(el => {

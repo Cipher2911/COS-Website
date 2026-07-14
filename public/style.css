@@ -11,39 +11,18 @@ p{
     font-weight: 100;
 }
 
-/* INTRO SECTION */ 
-/* 1. Make the header fixed so it floats over the full-screen background */
-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 9999; /* Ensures the nav bar is always on top of everything */
-}
-
-/* 2. Style and hide the nav bar initially */
+/* 2. Style the normal nav bar */
 #box {
     font-family: 'Garet', sans-serif;
     font-weight: bold;
-    background-color: #cd44ff; /* */
-    color: #421e57; /*[cite: 1] */
-    padding: 1px; /*[cite: 1] */
-    height: auto; /*[cite: 1] */
-    width: 100%; /* Changed from auto to 100% to fill the fixed header */
-    display: flex; /*[cite: 1] */
-    justify-content: space-between; /*[cite: 1] */
-    align-items: center; /*[cite: 1] */
-    
-    /* Splash Screen Hidden State */
-    opacity: 0; 
-    transform: translateY(-100%); /* Pushes it up off the screen */
-    transition: opacity 1.2s ease-in-out, transform 1.2s ease-in-out;
-}
-
-/* 3. The class JavaScript will trigger to reveal the nav bar */
-#box.nav-visible {
-    opacity: 1;
-    transform: translateY(0); /* Slides it back down into view */
+    background-color: #cd44ff; 
+    color: #421e57; 
+    padding: 1px; 
+    height: auto; 
+    width: 100%; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
 }
 
 #box h2{
@@ -142,6 +121,171 @@ header {
 
 .nav-logo:hover {
     transform: scale(1.05); /* Slight pop effect when hovering over the logo */
+}
+
+/* ==========================================
+   MEET YOUR CANDIDATES SECTION STYLES
+   ========================================== */
+
+#meet-candidates {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 80px 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.candidates-main-title {
+    font-family: 'Garet', sans-serif;
+    font-size: 50px;
+    font-weight: bold;
+    color: #fffff0;
+    margin-bottom: 50px;
+    text-align: center;
+    letter-spacing: 2px;
+}
+
+.highlight-purple {
+    color: #cd44ff;
+}
+
+/* Flex layout wrapping system that adapts cleanly on all monitors */
+.candidates-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    max-width: 1500px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* Individual Candidate Card Framework */
+.candidate-card {
+    position: relative;
+    width: 260px;
+    height: 420px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background-color: #5c277a;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    border-radius: 25px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.candidate-pic {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 25px;
+    z-index: 1;
+}
+
+/* Information Overlay UI Layer */
+.candidate-info-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0) 100%);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 25px 20px;
+    box-sizing: border-box;
+    transition: background 0.4s ease, justify-content 0.4s ease;
+    border-radius: 25px;
+}
+
+.candidate-card-name {
+    color: #ffffff;
+    font-family: 'Garet', sans-serif;
+    font-size: 22px;
+    font-weight: bold;
+    text-align: left;
+    margin: 0 0 5px 0;
+}
+
+.candidate-card-position {
+    color: #41D3BD;
+    font-family: 'Hanken Grotesk', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: left;
+    margin: 0 0 15px 0;
+}
+
+/* Sleek Button to go to designated webpage */
+.candidate-link-btn {
+    display: inline-block;
+    background-color: #cd44ff;
+    color: #ffffff;
+    font-family: 'Garet', sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+    padding: 10px 20px;
+    border-radius: 30px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    align-self: flex-start;
+}
+
+/* --- INTERACTIVE ACTION STATES --- */
+
+.candidate-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+}
+
+.candidate-card:hover .candidate-info-overlay {
+    background: rgba(92, 39, 122, 0.92); /* Solid styling tint matching theme */
+    justify-content: center; /* Smoothly re-centers the info overlay contents */
+}
+
+.candidate-card:hover .candidate-card-name {
+    text-align: center;
+    font-size: 24px;
+}
+
+.candidate-card:hover .candidate-card-position {
+    text-align: center;
+    color: #fffff0;
+}
+
+.candidate-card:hover .candidate-link-btn {
+    align-self: center;
+    background-color: #41D3BD;
+    color: #421e57;
+    transform: scale(1.05);
+}
+
+#pic-galvez {
+    transform: scale(1.5); /* Zooms the image in by 45% */
+    transform-origin: 50% 60%; /* Anchors the zoom near the top so his head isn't cut off */
+}
+
+#pic-benitez {
+    transform: scale(1.45); /* Zooms the image in by 45% */
+    transform-origin: 50% 70%; /* Anchors the zoom near the top so his head isn't cut off */
+}
+
+/* Mobile Responsiveness Viewport Adjustments */
+@media (max-width: 768px) {
+    .candidates-main-title {
+        font-size: 36px;
+    }
+    .candidate-card {
+        width: 280px; /* Slightly wider layout structural integrity for mobile displays */
+    }
 }
 
 /* MAIN CONTENT */
@@ -337,15 +481,23 @@ header {
 }
 
 /* Mobile Responsiveness */
+/* ==========================================
+   INTRO & TAGLINE RESPONSIVENESS
+   ========================================== */
+
+/* 1. TABLET SCREENS (Up to 1024px) */
+/* Scales down the massive text slightly so the two columns still fit side-by-side */
+@media (max-width: 1024px) {
+    .tagline-italic-24, .tagline-italic-25 { font-size: 45px; }
+    .candidate-name-main { font-size: 75px; }
+    .intro-tagline-focus24 { font-size: 80px; }
+    .candidate-position { font-size: 20px; }
+}
+
+/* 2. MOBILE SCREENS (Up to 768px) */
+/* Stacks the columns and centers the text */
 @media (max-width: 768px) {
-
-    .intro-content-pauline {
-        flex-direction: column; /* Stacks the columns on top of each other */
-        align-items: center; /* Centers everything */
-        padding-bottom: 40px;
-        gap: 30px; /* Space between the tagline and the name */
-    }
-
+    .intro-content-pauline,
     .intro-content-split {
         flex-direction: column; 
         align-items: center; 
@@ -358,9 +510,36 @@ header {
         text-align: center; 
     }
     
-    .tagline-italic { font-size: 28px; }
-    .candidate-name-main { font-size: 65px; }
+    /* Corrected class names for the taglines */
+    .tagline-italic-24, .tagline-italic-25 { font-size: 32px; }
+    .candidate-name-main { font-size: 55px; }
     .candidate-position { font-size: 18px; }
+
+    /* Centers the main Focus 2024 text */
+    .intro-content-focus24 {
+        text-align: center;
+        max-width: 100%;
+        padding: 0 5%;
+    }
+
+    .intro-tagline-focus24 {
+        font-size: 50px; 
+        margin: 0 auto 20px auto; /* Removes large left margin */
+    }
+    
+    .intro-name-focus24 {
+        margin-bottom: 15px;
+        text-align: center;
+    }
+}
+
+/* 3. EXTRA SMALL MOBILE (Up to 480px) */
+/* Further shrinks text for very narrow phone screens to prevent overflow */
+@media (max-width: 480px) {
+    .tagline-italic-24, .tagline-italic-25 { font-size: 26px; }
+    .candidate-name-main { font-size: 45px; }
+    .intro-tagline-focus24 { font-size: 40px; }
+    .candidate-position { font-size: 16px; }
 }
 
 .intro-content, .intro-content-focus24, .intro-content-focus25 {
@@ -793,3 +972,85 @@ header {
     transform: translateY(-15px) scale(1.02);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
 }
+
+/* ==========================================
+   NAVBAR RESPONSIVENESS (TABLETS & MOBILE)
+   ========================================== */
+
+/* 1. TABLET SCREENS (Laptops and Tablets up to 1024px) */
+@media (max-width: 1024px) {
+    .nav-logo {
+        height: 100px; /* Shrinks the logo */
+        margin-left: 20px; /* Reduces the huge left gap */
+    }
+    
+    #box h2 {
+        margin-left: 15px;
+    }
+
+    .nav-links a {
+        font-size: 18px; /* Slightly smaller text */
+        padding: 10px 5px;
+    }
+    
+    .nav-links {
+        margin-right: 10px;
+    }
+}
+
+/* 2. MOBILE SCREENS (Phones up to 768px) */
+@media (max-width: 768px) {
+    #box {
+        flex-direction: column; /* Stacks the logo and links vertically */
+        padding: 15px 0;
+        text-align: center;
+    }
+
+    .logo {
+        margin-bottom: 10px; /* Adds space between the logo and the links */
+        flex-direction: column; 
+    }
+
+    .nav-logo {
+        height: 80px; /* Much smaller logo for mobile */
+        margin-left: 0; /* Centers the logo */
+    }
+
+    #box h2 {
+        margin-left: 0; /* Centers the text next to the logo */
+        margin-top: 10px;
+        font-size: 22px;
+    }
+
+    .nav-links {
+        margin-right: 0;
+        padding: 0;
+        flex-wrap: wrap; /* Allows links to flow onto a new line if they run out of space */
+        justify-content: center;
+        gap: 5px; /* Adds a small gap between wrapped items */
+    }
+
+    .nav-links li {
+        padding: 5px;
+    }
+
+    .nav-links a {
+        font-size: 16px; /* Comfortable tapping size for mobile */
+        padding: 8px 12px;
+    }
+
+    /* Mobile Dropdown Fixes: Keeps the dropdown centered so it doesn't fall off the screen edge */
+    .dropdown-menu-a, .dropdown-menu-b {
+        left: 50%;
+        transform: translateX(-50%); /* Perfectly centers the dropdown box under the button */
+        min-width: 160px;
+    }
+}
+
+/* 3. EXTRA SMALL MOBILE (Phones under 480px) */
+@media (max-width: 480px) {
+    .nav-links a {
+        font-size: 14px; /* Ensures longer words don't break the layout on tiny screens */
+    }
+}
+
