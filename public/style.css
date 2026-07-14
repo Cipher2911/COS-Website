@@ -621,6 +621,13 @@ p{
     .tagline-italic-24, .tagline-italic-25 { font-size: 45px; }
     .candidate-name-main { font-size: 75px; }
     .candidate-position { font-size: 20px; }
+
+    .intro-logo {
+        height: 240px; 
+    }
+    .logo-layout .intro-tagline {
+        margin: 0 0 0 -60px !important; /* Pull text in closer to the smaller logo */
+    }
 }
 
 @media (max-width: 1024px) {
@@ -632,10 +639,19 @@ p{
 
     .intro-name-main {
         margin-left: 0 !important;       /* Removes the 100px desktop offset */
-        margin-bottom: 15px !important;  /* Replaces the negative overlap with clean spacing */
+        margin-bottom: 2px !important;  /* Replaces the negative overlap with clean spacing */
         text-align: center;              /* Centers the heading nicely */
     }
+
+    .intro-logo {
+        height: 180px;
+    }
+    .logo-layout .intro-tagline {
+        margin: 0 0 0 -40px !important;
+    }
     
+    .intro-tagline { font-size: 70px; }
+    .tagline-italic-scg { font-size: 45px; }
 }
 
 /* 2. MOBILE SCREENS (Up to 768px) */
@@ -658,6 +674,13 @@ p{
     .tagline-italic-24, .tagline-italic-25 { font-size: 32px; }
     .candidate-name-main { font-size: 55px; }
     .candidate-position { font-size: 18px; }
+
+    .intro-name-main {
+        margin-left: 0 !important;
+        margin-bottom: 5px !important;  
+        text-align: center;
+        font-size: 16px;                 
+    }
 
     /* Centers the main Focus 2024 text */
     .intro-content-focus24 {
@@ -682,6 +705,35 @@ p{
         text-align: center;
         font-size: 16px;                 /* Slightly smaller to fit ultra-narrow viewports */
     }
+
+    .intro-tagline { font-size: 50px; } 
+    .tagline-italic-scg { font-size: 32px; }
+
+    /* Clear out remaining desktop gaps on centered elements */
+    .intro-content {
+        margin: 0 auto;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 100%;
+    }
+    
+    .logo-layout {
+        flex-direction: column; 
+        justify-content: center;
+        align-items: center;
+    }
+
+    .logo-layout .intro-tagline {
+        margin: -10px 0 0 0 !important; /* Pull text clean against stacked logo */
+        text-align: center;
+    }
+    
+    .intro-logo {
+        height: 130px; /* Uniform mobile asset sizing */
+    }
+      
 }
 
 /* 3. EXTRA SMALL MOBILE (Up to 480px) */
@@ -691,6 +743,8 @@ p{
     .candidate-name-main { font-size: 45px; }
     .intro-tagline-focus24 { font-size: 40px; }
     .candidate-position { font-size: 16px; }
+    .intro-tagline { font-size: 40px; }
+    .tagline-italic-scg { font-size: 26px; }
 }
 
 
