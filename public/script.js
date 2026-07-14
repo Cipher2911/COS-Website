@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (navBar) {
             navBar.classList.add('nav-visible');
         }
-    }, 300);
+    }, 1000);
 
     // ==========================================
     // FEATURE 4: JAVASCRIPT HOVER EFFECTS
