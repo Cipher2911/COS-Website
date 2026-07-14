@@ -45,7 +45,7 @@ p{
     color: #421e57; 
     text-decoration: none;
     font-family: 'Montserrat', sans-serif;
-    font-size: 22px;
+    font-size: 18px;
     font-weight: 600;
     padding: 12px 6px 12px 6px;
     border-radius: 4px;
@@ -78,11 +78,11 @@ p{
 }
 
 .dropdown-menu-a {
-    min-width: 150px; /* Makes sure the box is wide enough for the text */
+    min-width: 105px; /* Makes sure the box is wide enough for the text */
 }
 
 .dropdown-menu-b {
-    min-width: 130px; /* Makes sure the box is wide enough for the text */
+    min-width: 100px; /* Makes sure the box is wide enough for the text */
 }
 
 .dropdown-a:hover .dropdown-menu-a, .dropdown-b:hover .dropdown-menu-b{
@@ -113,9 +113,9 @@ p{
 }
 
 .nav-logo {
-    height: 170px; /* Adjust this to make the logo bigger or smaller in the nav bar */
+    height: 120px; /* Adjust this to make the logo bigger or smaller in the nav bar */
     width: auto;
-    margin-left: 60px; /* Keeps the spacing you originally had from the left edge */
+    margin-left: 40px; /* Keeps the spacing you originally had from the left edge */
     transition: transform 0.2s ease; /* Optional: adds a smooth effect if you decide to make it clickable later */
 }
 
@@ -480,68 +480,6 @@ p{
     box-sizing: border-box;
 }
 
-/* Mobile Responsiveness */
-/* ==========================================
-   INTRO & TAGLINE RESPONSIVENESS
-   ========================================== */
-
-/* 1. TABLET SCREENS (Up to 1024px) */
-/* Scales down the massive text slightly so the two columns still fit side-by-side */
-@media (max-width: 1024px) {
-    .tagline-italic-24, .tagline-italic-25 { font-size: 45px; }
-    .candidate-name-main { font-size: 75px; }
-    .intro-tagline-focus24 { font-size: 80px; }
-    .candidate-position { font-size: 20px; }
-}
-
-/* 2. MOBILE SCREENS (Up to 768px) */
-/* Stacks the columns and centers the text */
-@media (max-width: 768px) {
-    .intro-content-pauline,
-    .intro-content-split {
-        flex-direction: column; 
-        align-items: center; 
-        padding-bottom: 40px;
-        gap: 30px; 
-    }
-    
-    .intro-left, .intro-right {
-        max-width: 100%;
-        text-align: center; 
-    }
-    
-    /* Corrected class names for the taglines */
-    .tagline-italic-24, .tagline-italic-25 { font-size: 32px; }
-    .candidate-name-main { font-size: 55px; }
-    .candidate-position { font-size: 18px; }
-
-    /* Centers the main Focus 2024 text */
-    .intro-content-focus24 {
-        text-align: center;
-        max-width: 100%;
-        padding: 0 5%;
-    }
-
-    .intro-tagline-focus24 {
-        font-size: 50px; 
-        margin: 0 auto 20px auto; /* Removes large left margin */
-    }
-    
-    .intro-name-focus24 {
-        margin-bottom: 15px;
-        text-align: center;
-    }
-}
-
-/* 3. EXTRA SMALL MOBILE (Up to 480px) */
-/* Further shrinks text for very narrow phone screens to prevent overflow */
-@media (max-width: 480px) {
-    .tagline-italic-24, .tagline-italic-25 { font-size: 26px; }
-    .candidate-name-main { font-size: 45px; }
-    .intro-tagline-focus24 { font-size: 40px; }
-    .candidate-position { font-size: 16px; }
-}
-
 .intro-content, .intro-content-focus24, .intro-content-focus25 {
     text-align: left;
 }
@@ -640,6 +578,119 @@ p{
     .intro-logo {
         height: 140px; /* Shrinks the logo for mobile screens */
     }
+}
+
+/* ==========================================
+   INTRO & TAGLINE RESPONSIVENESS
+   ========================================== */
+
+/* 1. TABLET SCREENS (Up to 1024px) */
+/* Scales down the massive text slightly so the two columns still fit side-by-side */
+
+/* ==========================================================================
+   1. TABLET & LAPTOP SCREENS (Up to 1280px)
+   ========================================================================== */
+@media (max-width: 1280px) {
+    /* Centers the entire content block on the screen, keeping text left-aligned */
+    .intro-content-focus24 {
+        margin: 0 auto;
+        width: 90%;
+        max-width: 1100px;
+        text-align: left;
+        padding: 0;
+    }
+
+    /* Scales down the massive tagline so it fits standard laptops & resized tabs */
+    .intro-tagline-focus24 { 
+        font-size: 68px; /* Reduced from 100px to guarantee fit on mid-sized screens */
+        line-height: 1.05;
+        margin: 0 0 20px 0; /* Flush left alignment */
+        text-align: left;
+        word-wrap: break-word;
+    }
+
+    .intro-name-focus24 {
+        text-align: left;
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+
+    /* Standardizes original elements for this scaled range */
+    .intro-tagline { font-size: 85px; }
+    .tagline-italic-scg { font-size: 55px; }
+    .tagline-italic-24, .tagline-italic-25 { font-size: 45px; }
+    .candidate-name-main { font-size: 75px; }
+    .candidate-position { font-size: 20px; }
+}
+
+@media (max-width: 1024px) {
+    
+    .tagline-italic-24, .tagline-italic-25 { font-size: 45px; }
+    .candidate-name-main { font-size: 75px; }
+    .intro-tagline-focus24 { font-size: 80px; }
+    .candidate-position { font-size: 20px; }
+
+    .intro-name-main {
+        margin-left: 0 !important;       /* Removes the 100px desktop offset */
+        margin-bottom: 15px !important;  /* Replaces the negative overlap with clean spacing */
+        text-align: center;              /* Centers the heading nicely */
+    }
+    
+}
+
+/* 2. MOBILE SCREENS (Up to 768px) */
+/* Stacks the columns and centers the text */
+@media (max-width: 768px) {
+    .intro-content-pauline,
+    .intro-content-split {
+        flex-direction: column; 
+        align-items: center; 
+        padding-bottom: 40px;
+        gap: 30px; 
+    }
+    
+    .intro-left, .intro-right {
+        max-width: 100%;
+        text-align: center; 
+    }
+    
+    /* Corrected class names for the taglines */
+    .tagline-italic-24, .tagline-italic-25 { font-size: 32px; }
+    .candidate-name-main { font-size: 55px; }
+    .candidate-position { font-size: 18px; }
+
+    /* Centers the main Focus 2024 text */
+    .intro-content-focus24 {
+        text-align: center;
+        max-width: 100%;
+        padding: 0 5%;
+    }
+
+    .intro-tagline-focus24 {
+        font-size: 50px; 
+        margin: 0 auto 20px auto; /* Removes large left margin */
+    }
+    
+    .intro-name-focus24 {
+        margin-bottom: 15px;
+        text-align: center;
+    }
+
+    .intro-name-main {
+        margin-left: 0 !important;
+        margin-bottom: 10px !important;  /* Tighter spacing for mobile screens */
+        text-align: center;
+        font-size: 16px;                 /* Slightly smaller to fit ultra-narrow viewports */
+    }
+}
+
+/* 3. EXTRA SMALL MOBILE (Up to 480px) */
+/* Further shrinks text for very narrow phone screens to prevent overflow */
+@media (max-width: 480px) {
+    .tagline-italic-24, .tagline-italic-25 { font-size: 26px; }
+    .candidate-name-main { font-size: 45px; }
+    .intro-tagline-focus24 { font-size: 40px; }
+    .candidate-position { font-size: 16px; }
 }
 
 
