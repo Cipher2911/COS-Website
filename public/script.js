@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }, {
-        threshold: 0.5// Triggers when 15% of the element is visible
+        threshold: 0.15// Triggers when 15% of the element is visible
     });
 
     animatedElements.forEach(el => {
@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (navBar) {
             navBar.classList.add('nav-visible');
         }
-    }, 1000);
+    }, 1500);
 
     // ==========================================
     // FEATURE 4: JAVASCRIPT HOVER EFFECTS
