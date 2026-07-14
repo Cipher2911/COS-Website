@@ -1145,3 +1145,71 @@ p{
     }
 }
 
+/* ==========================================
+   LEARN MORE SECTION STYLES
+   ========================================== */
+#learn-more-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: rgba(92, 39, 122, 0.4); /* Subtle transparent layer of your background theme purple */
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.learn-more-content {
+    text-align: center;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.learn-more-text {
+    font-family: 'Garet', sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: #fffff0; /* Matches your white/cream text color */
+    margin: 0;
+    line-height: 1.4;
+}
+
+.learn-more-btn {
+    display: inline-block;
+    background-color: #cd44ff; /* Magenta theme button */
+    color: #ffffff;
+    font-family: 'Garet', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 12px 30px;
+    border-radius: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.learn-more-btn:hover {
+    background-color: #41D3BD; /* Switches to theme teal on hover */
+    color: #421e57; /* Dark background purple for high contrast text on hover */
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(65, 211, 189, 0.4);
+}
+
+/* Responsive adjustment for mobile viewports */
+@media (max-width: 768px) {
+    #learn-more-section {
+        padding: 45px 15px;
+    }
+    .learn-more-text {
+        font-size: 18px;
+    }
+    .learn-more-btn {
+        font-size: 14px;
+        padding: 10px 24px;
+    }
+}
+
