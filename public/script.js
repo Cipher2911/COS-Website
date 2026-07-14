@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }, {
-        threshold: 0.75 // Triggers when 15% of the element is visible
+        threshold: 0.6// Triggers when 15% of the element is visible
     });
 
     animatedElements.forEach(el => {
