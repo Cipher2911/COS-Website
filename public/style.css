@@ -1,0 +1,795 @@
+body {
+    background-color: #421e57;
+    margin: 0; 
+    padding: 0; 
+    width: 100%; 
+    overflow-x: hidden;
+} 
+
+p{
+    font-family: 'Hanken Grotesk', sans-serif;
+    font-weight: 100;
+}
+
+/* INTRO SECTION */ 
+/* 1. Make the header fixed so it floats over the full-screen background */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999; /* Ensures the nav bar is always on top of everything */
+}
+
+/* 2. Style and hide the nav bar initially */
+#box {
+    font-family: 'Garet', sans-serif;
+    font-weight: bold;
+    background-color: #cd44ff; /* */
+    color: #421e57; /*[cite: 1] */
+    padding: 1px; /*[cite: 1] */
+    height: auto; /*[cite: 1] */
+    width: 100%; /* Changed from auto to 100% to fill the fixed header */
+    display: flex; /*[cite: 1] */
+    justify-content: space-between; /*[cite: 1] */
+    align-items: center; /*[cite: 1] */
+    
+    /* Splash Screen Hidden State */
+    opacity: 0; 
+    transform: translateY(-100%); /* Pushes it up off the screen */
+    transition: opacity 1.2s ease-in-out, transform 1.2s ease-in-out;
+}
+
+/* 3. The class JavaScript will trigger to reveal the nav bar */
+#box.nav-visible {
+    opacity: 1;
+    transform: translateY(0); /* Slides it back down into view */
+}
+
+#box h2{
+    margin-left: 30px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px; 
+}
+
+.nav-links li{
+    padding: 8px; 
+}
+
+.nav-links a {
+    color: #421e57; 
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    padding: 12px 6px 12px 6px;
+    border-radius: 4px;
+    transition: all 0.2s ease-in-out;
+}
+
+.nav-links a:hover {
+    background-color: #41D3BD;     
+    color: black; 
+}
+
+/* --- DROPDOWN MENU STYLES --- */
+
+.dropdown-a, .dropdown-b {
+    position: relative; 
+}
+
+.dropdown-menu-a, .dropdown-menu-b {
+    display: none; /* Keeps it invisible by default */
+    position: absolute;
+    top: 100%; /* Pushes it exactly below the 'Councils' text */
+    background-color: #421e57; /* Matches your navigation bar color */
+    list-style: none; /* Removes bullet points */
+    padding: 0;
+    margin: 0;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3); /* Adds a nice shadow to make it pop */
+    border-radius: 10px; /* Rounds the bottom corners */
+    overflow: hidden;
+    z-index: 1000; /* Ensures the menu floats ON TOP of your background images/text */
+}
+
+.dropdown-menu-a {
+    min-width: 150px; /* Makes sure the box is wide enough for the text */
+}
+
+.dropdown-menu-b {
+    min-width: 130px; /* Makes sure the box is wide enough for the text */
+}
+
+.dropdown-a:hover .dropdown-menu-a, .dropdown-b:hover .dropdown-menu-b{
+    display: block;
+}
+
+.dropdown-menu-a li, .dropdown-menu-b li {
+    padding: 0; /* Resets the padding so the links fill the whole box */
+}
+
+.dropdown-menu-a li a, .dropdown-menu-b li a{
+    display: block;
+    padding: 15px 20px;
+    color: #fffff0;
+    text-decoration: none;
+    font-size: 13px;
+    transition: background-color 0.2s ease; /* Smooth color change on hover */
+}
+
+.dropdown-menu-a li a:hover, .dropdown-menu-b li a:hover {
+    background-color: #41D3BD; 
+    color: black; 
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.nav-logo {
+    height: 170px; /* Adjust this to make the logo bigger or smaller in the nav bar */
+    width: auto;
+    margin-left: 60px; /* Keeps the spacing you originally had from the left edge */
+    transition: transform 0.2s ease; /* Optional: adds a smooth effect if you decide to make it clickable later */
+}
+
+.nav-logo:hover {
+    transform: scale(1.05); /* Slight pop effect when hovering over the logo */
+}
+
+/* MAIN CONTENT */
+
+/* Styling for the new Intro Text */
+#intro, #intro-scg, #intro-focus24, #intro-focus25 {
+    display: flex;
+    align-items: center; /* Centers content vertically */
+    justify-content: center; /* Aligns content to the left */
+
+    /* BACKGROUND IMAGE FOR INTRODUCTION SECTION */
+    background-image: linear-gradient(rgba(66, 30, 87, 0.8), rgba(66, 30, 87, 0.8)), url('image1.jpg');
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    height: 100vh; 
+    width: 100%;
+}
+
+/* Left Side Restraints */
+.intro-left {
+    max-width: 45%; 
+    text-align: left;
+}
+
+/* Right Side Restraints */
+.intro-right {
+    max-width: 50%;
+    text-align: right; /* Aligns the candidate text flush against the right side */
+}
+
+/* 1. Tagline Styling */
+.tagline-italic-scg, .tagline-italic-24, .tagline-italic-25{
+    font-family: 'Bebas Neue', sans-serif; 
+    font-weight: 1000;
+    color: #fffff0; 
+    margin-bottom: 0; /* Removed bottom margin so it sits level with the right column */
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+.tagline-italic-scg{
+    font-size: 70px;
+}
+
+.tagline-italic-24{
+    font-size: 59px;
+}
+
+.tagline-italic-25{
+    font-size: 60px;
+}
+
+/* 2. Party Name Styling */
+.party-name {
+    font-family: 'Garet', sans-serif; 
+    font-size: 16px;
+    font-weight: bold;
+    color: #fffff0; 
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    margin-top: 0;
+}
+
+/* 3. Main Candidate Name Styling */
+.candidate-name-main {
+    font-family: 'Bebas Neue', sans-serif; 
+    font-size: 95px;
+    color: #fffff0; 
+    margin: 0 0 10px 0;
+    line-height: 1.0;
+    letter-spacing: 1px;
+}
+
+/* 4. Candidate Position Styling */
+.candidate-position {
+    font-family: 'Garet', sans-serif; 
+    font-size: 24px;
+    font-weight: bold;
+    color: #41D3BD; 
+    margin: 0;
+}
+
+/* SCG */
+/* Container for the Hero Section */
+#intro-pauline {
+    background-image: url('galias.jpeg');
+    background-size: cover;
+    background-position: center; 
+    background-repeat: no-repeat;
+    height: 120vh;
+    width: 100%;
+    
+    display: flex;
+    align-items: flex-end; /* Pushes the main text container to the bottom */
+    position: relative;
+}
+
+/* Bottom Gradient Overlay (Top-left is completely clear) */
+#intro-pauline::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    /* Fades from solid purple at the bottom edge to transparent towards the middle */
+    background: linear-gradient(to top, rgba(66, 30, 87, 0.95) 0%, rgba(66, 30, 87, 0.7) 25%, rgba(66, 30, 87, 0) 60%);
+    z-index: 1; 
+}
+
+/* The New 2-Column Text Container */
+.intro-content-pauline {
+    position: relative;
+    z-index: 2; 
+    width: 100%; /* Spans the entire width of the screen */
+    display: flex;
+    justify-content: space-between; /* Pushes the left and right sections to opposite sides */
+    align-items: flex-end; /* Aligns them along the bottom edge */
+    padding: 0 5% 5% 5%; /* Sides and bottom padding */
+    box-sizing: border-box;
+}
+     
+/* FOCUS 2024 and 2025 */ 
+/* --- REUSABLE SPLIT LAYOUT FOR CANDIDATES --- */
+
+/* Base Container */
+.hero-split-layout {
+    background-position: center; 
+    background-repeat: no-repeat;
+    width: 100%;
+    display: flex;
+    align-items: flex-end; /* Pushes the main text container to the bottom */
+    position: relative;
+}
+
+/* Candidate Background Images */
+#intro-erandio {
+    background-size: cover; 
+    background-image: url('erandio.jpeg');
+    height: 100vh; 
+}
+
+#intro-benitez {
+    background-image: url('benitez.jpg');
+    height: 100vh;
+    background-size: cover;
+}
+
+/* New Candidate Background Images */
+#intro-galvez {
+    background-image: url('galvez.jpeg');
+    background-size: cover;
+    height: 100vh;
+}
+
+#intro-tang {
+    background-image: url('tang.jpeg');
+    height: 100vh;
+    background-size: cover; 
+}
+
+#intro-tang.tagline-italic, #intro-galvez.tagline-italic {
+    font-size: 59px; 
+}
+
+/* Bottom Gradient Overlay (Top-left is completely clear) */
+.hero-split-layout::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    /* Fades from solid purple at the bottom edge to transparent towards the middle */
+    background: linear-gradient(to top, rgba(66, 30, 87, 0.95) 0%, rgba(66, 30, 87, 0.7) 25%, rgba(66, 30, 87, 0) 60%); /*[cite: 4] */
+    z-index: 1; 
+}
+
+/* The 2-Column Text Container */
+.intro-content-split {
+    position: relative;
+    z-index: 2; 
+    width: 100%; 
+    display: flex;
+    justify-content: space-between; /* Pushes left and right sections to opposite sides */
+    align-items: flex-end; 
+    padding: 0 5% 5% 5%; 
+    box-sizing: border-box;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+
+    .intro-content-pauline {
+        flex-direction: column; /* Stacks the columns on top of each other */
+        align-items: center; /* Centers everything */
+        padding-bottom: 40px;
+        gap: 30px; /* Space between the tagline and the name */
+    }
+
+    .intro-content-split {
+        flex-direction: column; 
+        align-items: center; 
+        padding-bottom: 40px;
+        gap: 30px; 
+    }
+    
+    .intro-left, .intro-right {
+        max-width: 100%;
+        text-align: center; 
+    }
+    
+    .tagline-italic { font-size: 28px; }
+    .candidate-name-main { font-size: 65px; }
+    .candidate-position { font-size: 18px; }
+}
+
+.intro-content, .intro-content-focus24, .intro-content-focus25 {
+    text-align: left;
+}
+
+.intro-content{
+    max-width: 600px;
+    margin-right: 150px;
+}
+
+.intro-content-focus24{
+    max-width: 1150px;
+}
+
+.intro-name, .intro-name-focus24{
+    font-family: 'Garet', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: #fffff0;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+}
+
+.intro-name-main{
+    font-family: 'Garet', sans-serif;
+    font-size: 20px;
+    font-weight: 950;
+    color: #fffff0;
+    letter-spacing: 2px;
+    margin-bottom: -60px;
+    margin-left: 100px;
+}
+
+.intro-tagline, .intro-tagline-focus24 {
+    font-family: 'Bebas Neue', sans-serif; /* Matches the bold, condensed look */
+    line-height: 0.9;
+    color: #fffff0; /* Light blue/teal color from the image */
+    margin: 0 0 20px 20px;
+    text-transform: uppercase;
+}
+
+.intro-tagline {
+    font-size: 120px; /* Large impactful size */
+}
+
+.intro-tagline-focus24{
+    font-size: 100px; /* Large impactful size */
+}
+
+.intro-description {
+    font-family: 'Hanken Grotesk', sans-serif;
+    font-size: 30px;
+    font-weight: 400;
+    color: #fffff0;
+    max-width: 500px;
+    line-height: 1.4;
+}
+
+/* Flexbox layout to align the logo and text side-by-side */
+.logo-layout {
+    display: flex;
+    align-items: center; /* Vertically centers the logo with the text */
+    gap: 10px; /* Adds clean spacing between the image and the letters */
+}
+
+/* Sizing the logo to match the text height */
+.intro-logo {
+    height: 350px; /* Matches the ~216px height of the 2-line tagline */
+    width: auto;
+    object-fit: contain;
+}
+
+/* Removes the default margin from your tagline so it stays perfectly centered with the image */
+.logo-layout .intro-tagline {
+    margin: 0 0 0 -100px !important;
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 768px) {
+    .intro-title {
+        font-size: 60px;
+    }
+    #intro {
+        padding-left: 5%;
+    }
+
+    .logo-layout {
+        flex-direction: column; /* Stacks the logo on top of the text on small screens */
+        text-align: center;
+    }
+
+    .logo-layout .intro-tagline {
+        /* On mobile, we use a negative TOP margin to pull the text UP towards the logo */
+        margin: -20px 0 0 0 !important; 
+    }
+    
+    .intro-logo {
+        height: 140px; /* Shrinks the logo for mobile screens */
+    }
+}
+
+
+/* CONTACT PAGE */ 
+
+/* Container styling */
+.contact-card {
+    position: relative; /* Required for the overlay effect */
+    text-decoration: none;
+    width: 280px;  
+    height: 450px; 
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; 
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 30px; 
+}
+
+/* Base image styling */
+.contact-pic {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    object-position: center; 
+    border-radius: 30px;  
+    z-index: 1; /* Places the image underneath the text */
+}
+
+/* The overlay that holds the text */
+.card-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Default state: subtle gradient so the name is readable */
+    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 40%);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Keeps text at the bottom initially */
+    padding: 30px 20px 20px 20px;
+    box-sizing: border-box;
+    transition: background 0.4s ease, justify-content 0.4s ease;
+    border-radius: 30px;
+}
+
+/* Styling the name */
+.gov-title {
+    color: #ffffff;
+    font-family: 'Garet', sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: left; 
+    margin-bottom: 5px;
+}
+
+/* Contact Details - Hidden by default */
+.contact-deets {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, opacity 0.4s ease, margin 0.4s ease;
+    color: #fffff0;
+    font-family: 'Hanken Grotesk', sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    text-align: left;
+}
+
+.contact-deets p {
+    margin: 5px 0;
+}
+
+/* The "Meet" Button styling to match the reference */
+.meet-btn {
+    background-color: #cd44ff; /* Red button */
+    color: #ffffff;
+    font-family: 'Garet', sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 30px;
+    align-self: flex-end; /* Puts the button on the right */
+    margin-top: 15px;
+    transition: background-color 0.3s ease;
+}
+
+/* --- HOVER EFFECTS --- */
+
+/* Pop up effect for the whole card */
+.contact-card:hover {
+    transform: translateY(-15px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+}
+
+/* The solid box cover effect */
+.contact-card:hover .card-info {
+    background: rgba(92, 39, 122, 0.95); /* Uses your #5c277a theme color */
+    justify-content: center; /* Centers the content vertically on hover */
+}
+
+/* Reveal the contact details */
+.contact-card:hover .contact-deets {
+    max-height: 200px; /* Expands the box */
+    opacity: 1;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+/* Change button color on hover (like the brown/muted red in the reference) */
+.contact-card:hover .meet-btn {
+    background-color: #cd44ff; 
+    align-self: flex-start; /* Moves button to the left */
+}
+
+.contact-pic {
+    width: 100%;
+    flex-grow: 1; 
+    object-fit: cover; 
+    
+    /* Centers the subject of the picture perfectly */
+    object-position: center; 
+    
+    /* Matches the 30px roundness of the card's bottom corners */
+    border-radius: 30px;  
+}
+
+/* Specific layout for the Contact Section: 3 on top, 2 on bottom */
+#contact .platforms-container {
+    display: flex; 
+    flex-wrap: wrap;
+    justify-content: center; /* This perfectly centers the 2 cards on the bottom row */
+    gap: 30px; /* Space between the cards */
+    max-width: 960px; /* Limits width so exactly 3 cards (280px each) + gaps fit on one row */
+    margin: 30px auto 60px; /* Centers the whole container on the page */
+}
+
+/*PROJECTS, PLATFORMS AND LA AGENDA */ 
+
+/* Section Wrapper */
+#platforms-wide-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 80px 20px;
+    /* Transparent background to maintain your existing #421e57 body/intro background */
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* "PROJECTS & PLATFORMS" Main Title */
+.platforms-main-title {
+    font-family: 'Garet', sans-serif; /* Using your bold heading font */
+    font-size: 50px;
+    font-weight: bold;
+    color: #fffff0; /* Matches your white/cream text color */
+    margin-bottom: 50px;
+    text-align: center;
+    letter-spacing: 2px;
+}
+
+/* Highlighted "PLATFORMS" Text */
+.highlight-platforms {
+    color: #cd44ff; /* Using your theme's magenta instead of orange */
+}
+
+/* Vertical Stack Container */
+.platforms-vertical-container {
+    display: flex;
+    flex-direction: column; /* Stacks boxes vertically like the reference image */
+    gap: 25px; /* Spacing between the boxes */
+    max-width: 900px; /* Limits the width so it doesn't stretch too far on large screens */
+    width: 100%;
+}
+
+/* The Wide Platform Box */
+.platform-card-wide {
+    background-color: #5c277a; /* Uses your lighter purple box color */
+    padding: 40px;
+    border-radius: 12px; /* Matches your existing rounded corners */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Adds the subtle border seen in the reference */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+}
+
+.platform-card-wide:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
+
+/* Small Overline Text */
+.platform-overline {
+    font-family: 'Garet', sans-serif; 
+    font-size: 12px;
+    font-weight: bold;
+    color: #41D3BD; /* Using your theme's teal instead of orange */
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin: 0 0 10px 0;
+}
+
+/* Individual Project Title */
+.platform-card-wide .platform-title {
+    font-family: 'Garet', sans-serif;
+    font-size: 28px;
+    font-weight: bold;
+    color: #fffff0; 
+    margin: 0 0 15px 0;
+}
+
+/* Project Description Text */
+.platform-desc-text {
+    font-family: 'Hanken Grotesk', sans-serif; /* Using your body font */
+    font-size: 16px;
+    font-weight: 400;
+    color: #e0e0e0; /* Slightly muted white to distinguish from headers */
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .platforms-main-title {
+        font-size: 36px;
+    }
+    
+    .platform-card-wide {
+        padding: 25px;
+    }
+    
+    .platform-card-wide .platform-title {
+        font-size: 24px;
+    }
+}
+
+/* FOOTER STYLES */
+
+#contact-info {
+    background-color: #cd44ff; 
+    color: #421e57;
+    font-family: 'Hanken Grotesk', sans-serif;
+    padding: 60px 40px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-announcement {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 50px;
+    font-weight: 700;
+    margin-bottom: 60px;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+.footer-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 1100px;
+    margin-bottom: 50px;
+}
+
+.footer-left {
+    display: flex;
+    flex-direction: column;
+}
+
+.brand-name {
+    font-family: 'Hanken Grotesk', serif; 
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0 0 8px 0;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.brand-subtext {
+    margin: 0;
+    font-size: 14px;
+}
+
+
+@media (max-width: 768px) {
+    .footer-main {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 40px;
+    }
+    
+    .footer-right {
+        align-items: center;
+    }
+}
+/* Ensure the grid fits 4 members on large screens */
+@media (min-width: 1024px) {
+    .platforms-container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+    }
+}
+
+/* Enhancing the hover state for the cards */
+.gov-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #5c277a; /* Matches your theme */
+}
+
+.gov-card:hover {
+    transform: translateY(-15px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+}
+
+.contact-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #5c277a; /* Matches your theme */
+}
+
+.contact-card:hover {
+    transform: translateY(-15px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+}
