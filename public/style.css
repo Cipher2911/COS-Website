@@ -555,30 +555,7 @@ p{
 .logo-layout .intro-tagline {
     margin: 0 0 0 -100px !important;
 }
-
-/* Responsive adjustments for mobile */
-@media (max-width: 768px) {
-    .intro-title {
-        font-size: 60px;
-    }
-    #intro {
-        padding-left: 5%;
-    }
-
-    .logo-layout {
-        flex-direction: column; /* Stacks the logo on top of the text on small screens */
-        text-align: center;
-    }
-
-    .logo-layout .intro-tagline {
-        /* On mobile, we use a negative TOP margin to pull the text UP towards the logo */
-        margin: -20px 0 0 0 !important; 
-    }
     
-    .intro-logo {
-        height: 140px; /* Shrinks the logo for mobile screens */
-    }
-}
 
 /* ==========================================
    INTRO & TAGLINE RESPONSIVENESS
@@ -615,6 +592,14 @@ p{
         margin-bottom: 20px;
     }
 
+    .intro-name-main {
+        margin-left: 0 !important;
+        margin-bottom: -40px !important; /* Changes the negative drop to a clean 10px gap */
+        text-align: center;
+        width: 100%;
+        display: block;
+    }
+
     /* Standardizes original elements for this scaled range */
     .intro-tagline { font-size: 85px; }
     .tagline-italic-scg { font-size: 55px; }
@@ -639,7 +624,7 @@ p{
 
     .intro-name-main {
         margin-left: 0 !important;       /* Removes the 100px desktop offset */
-        margin-bottom: 2px !important;  /* Replaces the negative overlap with clean spacing */
+        margin-bottom: 1px !important;  /* Replaces the negative overlap with clean spacing */
         text-align: center;              /* Centers the heading nicely */
     }
 
@@ -650,13 +635,21 @@ p{
         margin: 0 0 0 -40px !important;
     }
     
-    .intro-tagline { font-size: 70px; }
+    .intro-tagline { font-size: 90px; }
     .tagline-italic-scg { font-size: 45px; }
 }
 
 /* 2. MOBILE SCREENS (Up to 768px) */
 /* Stacks the columns and centers the text */
 @media (max-width: 768px) {
+
+    .intro-title {
+        font-size: 60px;
+    }
+    #intro {
+        padding-left: 5%;
+    }
+
     .intro-content-pauline,
     .intro-content-split {
         flex-direction: column; 
@@ -674,13 +667,6 @@ p{
     .tagline-italic-24, .tagline-italic-25 { font-size: 32px; }
     .candidate-name-main { font-size: 55px; }
     .candidate-position { font-size: 18px; }
-
-    .intro-name-main {
-        margin-left: 0 !important;
-        margin-bottom: 5px !important;  
-        text-align: center;
-        font-size: 16px;                 
-    }
 
     /* Centers the main Focus 2024 text */
     .intro-content-focus24 {
@@ -701,17 +687,17 @@ p{
     
     .intro-name-main {
         margin-left: 0 !important;
-        margin-bottom: 10px !important;  /* Tighter spacing for mobile screens */
+        margin-bottom: -10px !important;  /* Tighter spacing for mobile screens */
         text-align: center;
         font-size: 16px;                 /* Slightly smaller to fit ultra-narrow viewports */
     }
 
-    .intro-tagline { font-size: 50px; } 
+    .intro-tagline { font-size: 90px; } 
     .tagline-italic-scg { font-size: 32px; }
 
     /* Clear out remaining desktop gaps on centered elements */
     .intro-content {
-        margin: 0 auto;
+        margin-right: 45px; 
         text-align: center;
         display: flex;
         flex-direction: column;
