@@ -269,12 +269,12 @@ p{
 }
 
 #pic-galvez {
-    transform: scale(1.5); /* Zooms the image in by 45% */
-    transform-origin: 50% 60%; /* Anchors the zoom near the top so his head isn't cut off */
+    transform: scale(1.45); /* Zooms the image in by 45% */
+    transform-origin: 50% 70%; /* Anchors the zoom near the top so his head isn't cut off */
 }
 
 #pic-benitez {
-    transform: scale(1.45); /* Zooms the image in by 45% */
+    transform: scale(1.65); /* Zooms the image in by 45% */
     transform-origin: 50% 70%; /* Anchors the zoom near the top so his head isn't cut off */
 }
 
@@ -432,16 +432,17 @@ p{
 }
 
 #intro-benitez {
-    background-image: url('benitez.JPG');
+    background-image: url('benitez.jpg');
     height: 100vh;
     background-size: cover;
 }
 
 /* New Candidate Background Images */
 #intro-galvez {
-    background-image: url('galvez.jpeg');
+    background-image: url('galvez.jpg');
     background-size: cover;
     height: 100vh;
+    background-position: center 47%;
 }
 
 #intro-tang {

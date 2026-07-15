@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Fade IN when the box enters the screen
                 entry.target.style.opacity = '1';
                 entry.target.style.transform = 'translateY(0)';
-                observer.unobserve(entry.target);
+                scrollObserver.unobserve(entry.target);
             } 
         });
     }, {
