@@ -1156,8 +1156,7 @@ p{
     padding: 60px 20px;
     width: 100%;
     box-sizing: border-box;
-    background-color: rgba(92, 39, 122, 0.4); /* Subtle transparent layer of your background theme purple */
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: #421e57;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
